@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="math olympiad game" />
+    <meta name="description" content="Where did this math problem come from?" />
+    <meta name="author" content="Kaiser Chan" />
+    <meta name="revised" content="08-23-2024" />
+    <title>Guess the Olympiad Problem</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+  <body>
+    <h1>Guess the Olympiad Problem</h1>
+    <p><button id="newProblem">New Problem</button></p>
+    <div class="callout">
+        <p id="problem"></p>
+    </div>
+    <p><b>Your Answer:</b> This problem is from <select id="contest">
+        <option value="IMO">IMO</option>
+        <option value="ISL">ISL</option>
+        <option value="PMO Qualifying">PMO Qualifying</option>
+        <option value="PMO Areas">PMO Areas</option>
+        <option value="PMO Nationals">PMO Nationals</option>
+    </select> <input type="text" id="iteration" placeholder="Iteration" size="4"></input>, problem <input type="text" id="problemNo" placeholder="Problem" size="5"></input><br>
+    <button id="submitAns">Submit Answer</button> <span id="correctAlert"></span></p>
+    <hr>
+    <h2>Conventions</h2>
+    <p>
+        <ul>
+            <li>For PMO Qualifying, the problem number format is <span class="code">Part.No</span>, for example, if the problem is Part I Problem 3, then one must enter <span class="code">I.3</span> in the problem number field.</li>
+        </ul>
+    </p>
+
+    <script src="script.js"></script>
+  </body>
+
+  <footer>
+    <p>By Kaiser Chan. (ChatGPT helped fix errors.)</p>
+  </footer>
+</html>
