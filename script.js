@@ -35,6 +35,18 @@ const problems = [
         "iteration": "2022",
         "problemNo": "C9"
     },
+    {
+        "problem": "eliasBlackboard.png",
+        "contest": "PMO Areas",
+        "iteration": "2025",
+        "problemNo": "II.1"
+    },
+    {
+        "problem": "migelLadder.png",
+        "contest": "MATHirang MATHibay",
+        "iteration": "2018",
+        "problemNo": "E3"
+    },
     
 ]
 
