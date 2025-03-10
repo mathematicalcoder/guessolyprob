@@ -47,6 +47,12 @@ const problems = [
         "iteration": "2018",
         "problemNo": "E3"
     },
+    {
+        "problem": "clockblock.png",
+        "contest": "AMC 10A",
+        "iteration": "2015",
+        "problemNo": "14"
+    },
     
 ]
 
