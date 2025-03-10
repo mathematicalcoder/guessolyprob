@@ -94,6 +94,8 @@ function giveProblem() {
 
 function giveProblemTimed() {
     document.getElementById("start").disabled = true;
+    correct = 0;
+    document.getElementById("correct").innerHTML = correct;
     giveProblem();
     var timeLeft = 60;
     const timer = setInterval(function() {
