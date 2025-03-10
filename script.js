@@ -23,6 +23,18 @@ const problems = [
         "iteration": "2021",
         "problemNo": "A1"
     },
+    {
+        "problem": "scales.webp",
+        "contest": "ISL",
+        "iteration": "2019",
+        "problemNo": "C9"
+    },
+    {
+        "problem": "biject.webp",
+        "contest": "ISL",
+        "iteration": "2022",
+        "problemNo": "C9"
+    },
     
 ]
 
