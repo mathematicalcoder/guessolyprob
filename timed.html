@@ -13,12 +13,12 @@
   </head>
 
   <body>
-    <h1>Guess the Olympiad Problem (Untimed)</h1>
-    <p><a href="timed.html">Want the timed version?</a></p>
+    <h1>Guess the Olympiad Problem (Timed)</h1>
+    <p>Guess the source of as many problems as you can in 60 seconds. <a href="index.html">Want the untimed version?</a></p>
 
-    <p><button id="newProblem" onclick="giveProblem();">New Problem</button></p>
+    <p><button onclick="giveProblemTimed();" id="start">Start</button> Current Problem: <b><span id="current">0</span></b>, Correct Guesses: <b><span id="correct">0</span></b>, Time Left: <b><span id="timeLeft">60</span> seconds</b></p>
     
-    <p><b>Your Answer:</b> <select id="contest">
+    <p><b>Your Answer:</b> <select id="contest" disabled>
         <option value="AMC 10A">AMC 10A</option>
         <option value="AMC 10B">AMC 10B</option>
         <option value="AMC 12A">AMC 12A</option>
@@ -30,8 +30,8 @@
         <option value="PMO Areas">PMO Areas</option>
         <option value="PMO Nationals">PMO Nationals</option>
         <option value="Putnam">Putnam</option>
-    </select> <input type="text" id="iteration" placeholder="Iteration" size="4"></input>, problem <input type="text" id="problemNo" placeholder="Problem" size="5"></input><br>
-    <button id="submitAns" onclick="checkAnswer(false);">Submit Answer</button> <span id="correctAlert"></span></p>
+    </select> <input type="text" id="iteration" placeholder="Iteration" size="4" disabled></input>, problem <input type="text" id="problemNo" placeholder="Problem" size="5" disabled></input>
+    <button id="submitAns" onclick="checkAnswer(true);" disabled>Submit Answer</button> <span id="correctAlert"></span></p>
     <div class="callout">
       <img id="problem" width="100%"></img>
     </div>
@@ -46,7 +46,6 @@
     </p>
 
     <script src="script.js"></script>
-    <script>giveProblem();</script>
   </body>
 
   <footer>

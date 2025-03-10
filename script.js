@@ -53,7 +53,18 @@ const problems = [
         "iteration": "2015",
         "problemNo": "14"
     },
-    
+    {
+        "problem": "evaluate.png",
+        "contest": "AMC 10B",
+        "iteration": "2021",
+        "problemNo": "2"
+    },
+    {
+        "problem": "japaneseTriangle.png",
+        "contest": "IMO",
+        "iteration": "2023",
+        "problemNo": "5"
+    },
 ]
 
 MathJax = {
@@ -63,11 +74,13 @@ MathJax = {
 };
 
 var index = 0;
+var correct = 0;
 
 function giveProblem() {
     document.getElementById("contest").disabled = false;
     document.getElementById("iteration").disabled = false;
     document.getElementById("problemNo").disabled = false;
+    document.getElementById("submitAns").disabled = false;
     index = Math.floor(Math.random() * problems.length);
     document.getElementById("problem").setAttribute('src', "images/" + problems[index]["problem"]);
     document.getElementById("correctAlert").innerHTML = "";
@@ -79,24 +92,44 @@ function giveProblem() {
     });
 }
 
-function checkAnswer() {
+function giveProblemTimed() {
+    document.getElementById("start").disabled = true;
+    giveProblem();
+    var timeLeft = 60;
+    const timer = setInterval(function() {
+        timeLeft -= 1;
+        document.getElementById("timeLeft").innerHTML = timeLeft;
+        
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            document.getElementById("contest").disabled = true;
+            document.getElementById("iteration").disabled = true;
+            document.getElementById("problemNo").disabled = true;    
+            document.getElementById("submitAns").disabled = true;    
+            document.getElementById("start").disabled = false;
+        }
+    }, 1000);
+}
+
+function checkAnswer(timed) {
     let contest = document.getElementById("contest").value;
     let iteration = document.getElementById("iteration").value;
     let problemNo = document.getElementById("problemNo").value;
-    if (contest == problems[index]["contest"] && iteration == problems[index]["iteration"] && problemNo == problems[index]["problemNo"]) {
-        document.getElementById("correctAlert").innerHTML = "<b>Correct!</b>";
-        document.getElementById("contest").disabled = true;
-        document.getElementById("iteration").disabled = true;
-        document.getElementById("problemNo").disabled = true;
+    if (contest.toUpperCase() == problems[index]["contest"].toUpperCase() && iteration.toUpperCase() == problems[index]["iteration"].toUpperCase() && problemNo.toUpperCase() == problems[index]["problemNo"].toUpperCase()) {
+        correct += 1;
+        if (!timed) {
+            document.getElementById("correctAlert").innerHTML = "<b>Correct!</b>";
+            document.getElementById("contest").disabled = true;
+            document.getElementById("iteration").disabled = true;
+            document.getElementById("problemNo").disabled = true;
+            document.getElementById("submitAns").disabled = true;
+        } else {
+            document.getElementById("correctAlert").innerHTML = "<b>Correct! The next problem will be given in at most 2 seconds.</b>";
+            document.getElementById("correct").innerHTML = correct;
+            const newProblem = setTimeout(giveProblem,2000);
+        }
     }
     else {
-        document.getElementById("correctAlert").innerHTML = "<b>Incorrect!</b>";
+        document.getElementById("correctAlert").innerHTML = "<b>Incorrect! Try again.</b>";
     }
 }
-
-giveProblem();
-document.getElementById("newProblem").addEventListener("click", function() {
-    console.log("New problem button clicked!");
-    giveProblem();
-});
-document.getElementById("submitAns").addEventListener("click", checkAnswer);
