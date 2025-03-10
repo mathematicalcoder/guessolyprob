@@ -52,6 +52,7 @@ function giveProblem() {
     document.getElementById("problemNo").disabled = false;
     index = Math.floor(Math.random() * problems.length);
     document.getElementById("problem").setAttribute('src', "images/" + problems[index]["problem"]);
+    document.getElementById("correctAlert").innerHTML = "";
 
     MathJax.startup.promise.then(() => {
         MathJax.typeset();
